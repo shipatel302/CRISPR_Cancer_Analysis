@@ -2,7 +2,7 @@
 
 Some genes keep cancer cells alive but aren't needed by normal cells at all. Knock one out, and in theory the tumor dies while healthy tissue stays fine. That's the target this project is hunting for.
 
-The catch is proving the second half that a gene is actually safe to remove from normal cells. That takes real data on enough normal cells to be sure. Skip that step, and "safe" just means "I didn't check," which isn't the same thing. Get it wrong, and the list isn't cancer-specific at all — it's just genes every cell needs, dressed up as a discovery.
+The catch is proving the second half that a gene is actually safe to remove from normal cells. That takes real data on enough normal cells to be sure. Skip that step, and "safe" just means "I didn't check," which isn't the same thing. Get it wrong, and the list isn't cancer-specific at all it's just genes every cell needs, dressed up as a discovery.
 
 This project uses public CRISPR essentiality screens (BioGRID ORCS) to make that comparison for real: genes essential in cancer screens that never show up as essential in normal-cell screens.
 
