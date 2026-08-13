@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+
+# Raw screen data is ~2.7GB / 1900+ files — too large for git.
+# Download instructions are in the README.
+screens_biogrid/*
+!screens_biogrid/.gitkeep
+
+.ipynb_checkpoints/
+.claude/
