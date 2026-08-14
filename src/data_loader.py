@@ -4,7 +4,7 @@ import pandas as pd
 # Cell type keywords used to split screens into cancer vs normal cell lines.
 CANCER_KEYWORDS = "Cancer|Leukemia|Carcinoma|Lymphoma|Melanoma|Glioma|Sarcoma"
 
-
+#  metadata file that describes every screen
 def load_screen_index(index_file):
     return pd.read_csv(index_file, sep="\t")
 
