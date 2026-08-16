@@ -62,7 +62,7 @@ Full ranked list: [`outputs/cancer_specific_genes.csv`](outputs/cancer_specific_
 
 ![Top genes by combined score](outputs/plots/top_genes_combined_score.png)
 
-**Take these with a grain of salt — this is exploratory, not a validated
+**This is exploratory, not a validated
 target list:**
 - Passing every filter here means "well-supported by this dataset," not
   "proven to kill cancer cells." The Bayes Factor measures relative
