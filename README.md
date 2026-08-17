@@ -21,18 +21,18 @@ This project uses public CRISPR essentiality screens (BioGRID ORCS) to make that
 ## What it does, step by step
 
 1. **Narrow down the screens.** BioGRID ORCS has all kinds of CRISPR
-   screens — drug resistance, viral infection, differentiation — and I
+   screens: drug resistance, viral infection, differentiation and I
    only want the ones actually measuring essentiality: gene
    knockout/inhibition, proliferation as the outcome, no drug added, and
    scored with Bayes Factor so every screen is comparable.
 2. **Split into cancer vs. normal** using the `CELL_TYPE` column (matching
    Cancer/Leukemia/Carcinoma/Lymphoma/Melanoma/Glioma/Sarcoma).
-3. **Read every screen file** and build a per-gene score for each group —
-   cancer and normal — counting a gene as a "hit" only if its Bayes Factor
+3. **Read every screen file** and build a per-gene score for each group
+   cancer and normal. counting a gene as a "hit" only if its Bayes Factor
    clears `BF_THRESHOLD` (default 5).
 4. **Take the difference.** Genes that were a hit in cancer screens but
    never a hit in any normal-cell screen become my candidate list.
-5. **Filter out pan-essential genes** — genes basically every cell needs
+5. **Filter out pan-essential genes** genes basically every cell needs
    (ribosomes, spliceosome, DNA replication machinery). These can sneak
    through step 4 just because my normal-screen sample is small, not
    because they're actually safe. I remove them using:
@@ -66,11 +66,11 @@ Full ranked list: [`outputs/cancer_specific_genes.csv`](outputs/cancer_specific_
 target list:**
 - Passing every filter here means "well-supported by this dataset," not
   "proven to kill cancer cells." The Bayes Factor measures relative
-  dropout in a pooled screen — a proxy for reduced fitness, which could
+  dropout in a pooled screen a proxy for reduced fitness, which could
   mean cell death, slowed growth, or something else entirely. Actual cell
   death needs a follow-up assay.
-- The normal-cell side of the data is thin — about 87 screens vs. 275
-  cancer screens — so "never a hit in normal screens" sometimes just
+- The normal-cell side of the data is thin about 87 screens vs. 275
+  cancer screens so "never a hit in normal screens" sometimes just
   means "wasn't tested enough," not "genuinely safe."
 - Anything worth taking seriously from this list should get checked
   against the literature and DepMap's per-cell-line data first.
@@ -78,18 +78,18 @@ target list:**
 ## Biological insights (short version)
 
 My two rankings picked different "top" genes, and figuring out why taught
-me the most. The average-score chart puts CRTC3 first — but that gene
+me the most. The average-score chart puts CRTC3 first but that gene
 only showed up as a hit in **1** screen, so it might just be a fluke, not
 a real pattern. The combined-score chart only trusts a gene if it shows
-up in *multiple* screens, and there, **GART** wins instead — backed by 8
+up in *multiple* screens, and there, **GART** wins instead backed by 8
 separate screens all agreeing. That's the result I'd actually bet on.
 
 After GART and WRN, the results flatten out into a big cluster where
-every gene looks about the same — that's not a real ranking anymore,
+every gene looks about the same that's not a real ranking anymore,
 that's just noise. The reason comes down to data: I only had 87
 normal-cell screens to work with, so I can't always tell if a gene is
 truly "safe" in normal cells or if I just didn't test it enough times.
-That's why I brought in DepMap's much larger reference list — to catch
+That's why I brought in DepMap's much larger reference list to catch
 the common, everyday-essential genes my own data was too small to spot
 on its own.
 
